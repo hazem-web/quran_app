@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/Core/Utils/app_colors.dart';
 import 'package:quran_app/Core/Utils/app_images.dart';
-import 'package:quran_app/Core/Utils/app_size_config.dart';
 import 'package:quran_app/Core/Utils/app_text_style.dart';
+import 'package:quran_app/Core/widgets/background_image.dart';
 import 'package:quran_app/Features/Home/presentation/widgets/custom_container_items.dart';
 
 class HomePageBody extends StatelessWidget {
@@ -12,12 +12,7 @@ class HomePageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SizedBox(
-            width: SizeConfig.screenWidth,
-            child: Image.asset(
-              AppImages.background,
-              fit: BoxFit.cover,
-            )),
+        const BackgroundImage(),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Center(

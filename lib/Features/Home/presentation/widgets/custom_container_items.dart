@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:quran_app/Core/Utils/app_size_config.dart';
 import 'package:quran_app/Core/Utils/app_text_style.dart';
 import 'package:quran_app/Features/QuranScreen/presentation/pages/quran_screen.dart';
-import 'package:quran_app/Features/Splash_Screen/Presentation/pages/splash_screen.dart';
 
 class CustomContainerItems extends StatelessWidget {
   const CustomContainerItems({super.key, required this.text, required this.image});

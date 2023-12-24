@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/Core/Utils/app_text_style.dart';
+import '../../data/models/Surahdata.dart';
 
 class SorahContentContainer extends StatelessWidget {
-  const SorahContentContainer({super.key});
-
+  const SorahContentContainer({super.key, required this.surahData});
+final SurahData surahData;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,28 +24,55 @@ class SorahContentContainer extends StatelessWidget {
           )
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              const Text('اسم السورة',style: AppTextStyle.text15,),
-              const SizedBox(width: 10,),
-              Container(
-                width: 36,
-                height: 36,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(image: AssetImage('assets/images/muslim (1) 1.png'))
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                surahData.revelationType=='Meccan'? Container(
+                  width: 25,
+                  height: 25,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(image: AssetImage('assets/images/kaaba.png'))
+                  ),
+                ):Container(
+                  width: 35,
+                  height: 35,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(image: AssetImage('assets/images/—Pngtree—madina sharif_6366069.png'),)
+                  ),
                 ),
-                child: const Center(child: Text('1',textAlign: TextAlign.center,style: AppTextStyle.text14,)),
-              ),
-            ],
-          ),
-          const Text('نوع السورة',style: AppTextStyle.text13,),
-          const Text('عدد الايات',style: AppTextStyle.text13,),
-          const Text('الجزء',style: AppTextStyle.text13,),
-        ],
+                const Spacer(),
+                Text(surahData.name??'',style: AppTextStyle.text15,),
+                const SizedBox(width: 10,),
+                Container(
+                  width: 36,
+                  height: 36,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(image: AssetImage('assets/images/muslim (1) 1.png'))
+                  ),
+                  child:  Center(child: Text(surahData.number.toString(),textAlign: TextAlign.center,style: AppTextStyle.text14,)),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(' عدد الايات :${surahData.numberOfAyahs??''}',style: AppTextStyle.text13,textDirection: TextDirection.rtl,),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(' نوع السورة :${surahData.revelationType=='Meccan'?'مكية':'مدنية'}',style: AppTextStyle.text13,textDirection: TextDirection.rtl,),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
