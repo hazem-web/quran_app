@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/Core/Utils/app_colors.dart';
 import 'package:quran_app/Core/Utils/app_images.dart';
 import 'package:quran_app/Core/Utils/app_text_style.dart';
 import 'package:quran_app/Core/widgets/background_image.dart';
@@ -23,13 +22,6 @@ class HomePageBody extends StatelessWidget {
                   'اسلامى',
                   style: AppTextStyle.amiriFont20.copyWith(fontSize: 55),
                 ),
-                 const Row(
-                   mainAxisAlignment: MainAxisAlignment.end,
-                   children: [
-                     Text('المطرية',textDirection: TextDirection.rtl,),
-                     Icon(Icons.location_on_rounded,color: AppColors.main,),
-                   ],
-                 ),
                  const SizedBox(height: 20,),
                  const Wrap(
                   spacing: 20,
